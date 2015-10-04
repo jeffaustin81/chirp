@@ -28,10 +28,17 @@ router.route('/posts/:id')
     });
 })
 // update particular post
-.post(function(req, res) {
+.put(function(req, res) {
     // temporary solution
     res.send({
         message: 'TODO modify post with ID' + req.params.id
+    });
+});
+// delete existing post
+.delete(function(req, res) {
+    // temporary solution
+    res.send({
+        message: 'TODO delete post with ID' + req.params.id
     });
 });
 
