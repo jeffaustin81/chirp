@@ -1,3 +1,10 @@
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
+var LocalStrategy = require('passport-local').Strategy;
+var bCrypt = require('bcrypt');
+//temporary data store
+var users = {};
+
 var express = require('express');
 var router = express.Router();
 
