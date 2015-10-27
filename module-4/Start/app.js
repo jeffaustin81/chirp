@@ -6,11 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
+var mongoose = require('mongoose');
+require('./models/models.js');
+
+// var index = require('./routes/index');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
-var mongoose = require('mongoose');
 // connect to mongodb
-mongoose.connect("mongodb://localhost:27017/chirp-test");
+mongoose.connect("mongodb://localhost/chirp-test");
+
 var app = express();
 
 // view engine setup
@@ -40,6 +44,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+//// Initialize models
 //// Initialize Passport
 var initPassport = require('./passport-init');
 initPassport(passport);
